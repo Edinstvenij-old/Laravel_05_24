@@ -11,6 +11,7 @@
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
+                            <!-- Name -->
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -25,6 +26,7 @@
                                 </div>
                             </div>
 
+                            <!-- Last Name -->
                             <div class="row mb-3">
                                 <label for="lastname" class="col-md-4 col-form-label text-md-end">{{ __('Last Name') }}</label>
 
@@ -39,6 +41,7 @@
                                 </div>
                             </div>
 
+                            <!-- Email -->
                             <div class="row mb-3">
                                 <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
@@ -53,6 +56,7 @@
                                 </div>
                             </div>
 
+                            <!-- Phone -->
                             <div class="row mb-3">
                                 <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
@@ -67,6 +71,7 @@
                                 </div>
                             </div>
 
+                            <!-- Birthdate -->
                             <div class="row mb-3">
                                 <label for="birthdate" class="col-md-4 col-form-label text-md-end">{{ __('Phone') }}</label>
 
@@ -81,6 +86,7 @@
                                 </div>
                             </div>
 
+                            <!-- Password -->
                             <div class="row mb-3">
                                 <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
@@ -95,6 +101,7 @@
                                 </div>
                             </div>
 
+                            <!-- Confirm Password -->
                             <div class="row mb-3">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 

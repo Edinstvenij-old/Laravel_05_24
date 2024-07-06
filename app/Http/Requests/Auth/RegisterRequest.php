@@ -19,7 +19,7 @@ class RegisterRequest extends FormRequest
             'lastname' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'unique:users', new PhoneNumber],
-            'birthdate' => ['required', 'date', 'before_or_equal:-18 years'],
+            'birthdate' => ['required', 'date', 'before_or_equal:' . now()->subYears(18)->format('Y-m-d')],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }

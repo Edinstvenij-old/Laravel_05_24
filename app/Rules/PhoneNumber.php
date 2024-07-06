@@ -9,8 +9,11 @@ class PhoneNumber implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (! preg_match('/^((\+\d{1,2})?\(?\d{3}\)?\d{3}[-]?\d{2}[-]?\d{2})$/', $value)) {
-            $fail("The $attribute must be at least 10 digits");
+        // Регулярний вираз для перевірки номера телефону з кодом країни або без нього
+        $pattern = '/^\+?\d{1,4}?[-.\s]?\(?\d{1,4}?\)?[-.\s]?\d{1,9}$/';
+
+        if (! preg_match($pattern, $value)) {
+            $fail("The $attribute must be a valid phone number.");
         }
     }
 }
