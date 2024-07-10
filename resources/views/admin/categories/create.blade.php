@@ -21,7 +21,7 @@
                                 @foreach($categories as $category)
                                     <option
                                         value="{{$category->id}}"
-                                        @if(old('parent_id') && old('parent_id') === $categoryid) selected @endif
+                                        @if(old('parent_id') && old('parent_id') === $category->id) selected @endif
                                     >{{$category->name}}</option>
                                 @endforeach
                             </select>
