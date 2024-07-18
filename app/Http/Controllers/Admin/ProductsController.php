@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Enums\Permissions\Category as Permission;
+use App\Enums\Permissions\Product as Permission;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Products\CreateRequest;
-use App\Http\Requests\Admin\Products\EditRequest; // Предполагается, что существует EditRequest для обновлений продуктов
+use App\Http\Requests\Admin\Products\EditRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Repositories\Contract\ProductsRepositoryContract;
@@ -14,7 +14,7 @@ use Illuminate\Support\Str;
 class ProductsController extends Controller
 {
     /**
-     * Отображение списка ресурсов.
+     * Display a listing of the resource.
      */
     public function index()
     {
@@ -26,7 +26,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Показ формы для создания нового ресурса.
+     * Show the form for creating a new resource.
      */
     public function create()
     {
@@ -34,51 +34,55 @@ class ProductsController extends Controller
     }
 
     /**
-     * Сохранение нового ресурса в хранилище.
+     * Store a newly created resource in storage.
      */
     public function store(CreateRequest $request, ProductsRepositoryContract $repository)
     {
         if ($product = $repository->create($request)) {
+            notify()->success("Product '$product->title' was created!");
             return redirect()->route('admin.products.index');
         }
-
+        notify()->error("Oops, smth went wrong");
         return redirect()->back()->withInput();
     }
 
     /**
-     * Показ формы для редактирования указанного ресурса.
+     * Show the form for editing the specified resource.
      */
     public function edit(Product $product)
     {
-        return view('admin/products/edit', [
-            'categories' => Category::select(['id', 'name'])
-                ->whereNot('id', $product->id)
-                ->get(),
-            'product' => $product
-        ]);
+        $product->load(['images', 'categories']);
+
+        $categories = Category::all();
+        $productCategories = $product->categories->pluck('id')->toArray();
+
+        return view('admin/products/edit', compact('categories', 'productCategories', 'product'));
     }
 
     /**
-     * Обновление указанного ресурса в хранилище.
+     * Update the specified resource in storage.
      */
-    public function update(EditRequest $request, Product $product)
+    public function update(EditRequest $request, Product $product, ProductsRepositoryContract $repository)
     {
-        $data = $request->validated();
-        $data['slug'] = Str::slug($data['name']);
-
-        $product->updateOrFail($data);
-
-        return redirect()->route('admin.products.edit', $product);
+        if ($product = $repository->update($product, $request)) {
+            notify()->success("Product '$product->title' was updated!");
+            return redirect()->route('admin.products.index');
+        }
+        notify()->error("Oops, smth went wrong");
+        return redirect()->back()->withInput();
     }
 
     /**
-     * Удаление указанного ресурса из хранилища.
+     * Remove the specified resource from storage.
      */
     public function destroy(Product $product)
     {
         $this->middleware('permission:' . Permission::DELETE->value);
 
+        $product->categories()->detach();
         $product->deleteOrFail();
+
+        notify()->success("Product '$product->title' was removed!");
 
         return redirect()->route('admin.products.index');
     }
