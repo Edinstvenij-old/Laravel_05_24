@@ -4,9 +4,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex align-items-center justify-content-center pt-5">
-                <form class="card w-50" method="POST" enctype="multipart/form-data" action="{{route('admin.products.store')}}">
+                <form class="card w-50" method="POST" enctype="multipart/form-data" action="{{route('admin.products.update',$product->id)}}">
                     @csrf
-
+                    @method('PUT')
                     <h5 class="card-header">Edit product</h5>
                     <div class="card-body">
                         <div class="row mb-3">
@@ -164,7 +164,7 @@
 
                     </div>
                     <div class="card-footer d-flex align-items-center justify-content-end">
-                        <button type="submit" class="btn btn-outline-success">Create</button>
+                        <button type="submit" class="btn btn-outline-success">Update</button>
                     </div>
                 </form>
             </div>
