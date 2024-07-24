@@ -64,7 +64,7 @@ class ProductsController extends Controller
      */
     public function update(EditRequest $request, Product $product, ProductsRepositoryContract $repository)
     {
-        if ($repository->update($product, $request)) {
+        if ($product = $repository->update($product, $request)) {
             notify()->success("Product '$product->title' was updated!");
             return redirect()->route('admin.products.index');
         }
@@ -82,7 +82,7 @@ class ProductsController extends Controller
         $product->categories()->detach();
         $product->deleteOrFail();
 
-        notify()->success("Product '$product->title' was removed!");
+        notify()->suceess("Product '$product->title' was removed!");
 
         return redirect()->route('admin.products.index');
     }

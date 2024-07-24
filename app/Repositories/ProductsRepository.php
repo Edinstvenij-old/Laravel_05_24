@@ -71,7 +71,7 @@ class ProductsRepository implements ProductsRepositoryContract
         }
     }
 
-    protected function formRequestData(EditRequest|CreateRequest $request): array
+    protected function formRequestData(CreateRequest|EditRequest $request): array
     {
         return [
             'attributes' => collect($request->validated())
