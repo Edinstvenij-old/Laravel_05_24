@@ -11,9 +11,7 @@ use Illuminate\Support\Str;
 
 class CategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $categories = Category::with(['parent'])
@@ -22,17 +20,13 @@ class CategoriesController extends Controller
         return view('admin/categories/index', compact('categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('admin/categories/create', ['categories' => Category::select(['id', 'name'])->get()]);
+        return view('admin/categories/create', [
+            'categories' => Category::select(['id', 'name'])->get()
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(CreateRequest $request)
     {
         $data = $request->validated();
@@ -45,41 +39,37 @@ class CategoriesController extends Controller
         return redirect()->route('admin.categories.index');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Category $category)
     {
         return view('admin/categories/edit', [
             'categories' => Category::select(['id', 'name'])
-                ->whereNot('id', $category->id)
+                ->where('id', '!=', $category->id)
                 ->get(),
             'category' => $category
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(EditRequest $request, Category $category)
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['name']);
 
-        $category->updateOrFail($data);
+        $category->update($data);
 
-        return redirect()->route('admin.categories.edit', $category);
+        notify()->success("Category '{$data['name']}' was updated!");
+
+        return redirect()->route('admin.categories.index', $category);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Category $category)
     {
         $this->middleware('permission:' . Permission::DELETE->value);
 
-        $category->deleteOrFail();
+        $category->delete();
+
+        notify()->success("Category '{$category->name}' was removed!");
 
         return redirect()->route('admin.categories.index');
     }
 }
+
