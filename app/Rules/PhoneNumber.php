@@ -9,11 +9,12 @@ class PhoneNumber implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        // Регулярний вираз для перевірки номера телефону з кодом країни або без нього
-        $pattern = '/^\+?\d{1,4}?[-.\s]?\(?\d{1,4}?\)?[-.\s]?\d{1,9}$/';
+        // Регулярное выражение для проверки телефона. Можете изменить его в зависимости от требований.
+        $pattern = '/^\+?[1-9]\d{1,14}$/'; // Простой формат для международных номеров
 
         if (! preg_match($pattern, $value)) {
             $fail("The $attribute must be a valid phone number.");
         }
     }
 }
+

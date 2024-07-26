@@ -1,5 +1,4 @@
 <?php
-
 namespace Tests\Feature\Traits;
 
 use App\Enums\Role;
@@ -19,7 +18,7 @@ trait SetupTrait
         $this->app->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
     }
 
-    protected function afterRefreshingDatabase(): void
+    protected function afterRefreshingDatabase()
     {
         $this->seed(PermissionsAndRolesSeeder::class);
         $this->seed(UserSeeder::class);

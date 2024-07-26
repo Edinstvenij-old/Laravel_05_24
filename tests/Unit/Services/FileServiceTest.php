@@ -22,9 +22,9 @@ class FileServiceTest extends TestCase
 
     public function test_success_with_the_valid_file()
     {
-        $uploadedFile = $this->uploadTestFile();
-        $this->assertTrue(Storage::exists($uploadedFile));
-        $this->assertEquals('public', Storage::getVisibility($uploadedFile));
+        $uploadedFile = $this->uploadedFile();
+        $this->assertTrue(Storage::has($uploadedFile));
+        $this->assertEquals(Storage::getVisibility($uploadedFile), 'public');
     }
 
     public function test_it_returns_the_same_path_for_string_file()
@@ -32,7 +32,7 @@ class FileServiceTest extends TestCase
         $fileName = 'test/image.png';
         $uploadedFile = $this->service->upload($fileName);
 
-        $this->assertEquals($fileName, $uploadedFile);
+        $this->assertEquals($uploadedFile, $fileName);
     }
 
     public function test_it_returns_path_without_storage_name()
@@ -40,7 +40,7 @@ class FileServiceTest extends TestCase
         $fileName = 'public/storage/test/image.png';
         $uploadedFile = $this->service->upload($fileName);
 
-        $this->assertEquals('/test/image.png', $uploadedFile);
+        $this->assertEquals($uploadedFile, '/test/image.png');
     }
 
     public function test_success_with_the_valid_file_and_additional_path()
@@ -49,27 +49,27 @@ class FileServiceTest extends TestCase
 
         $this->assertFalse(Storage::directoryExists($folder));
 
-        $uploadedFile = $this->uploadTestFile(additionalPath: $folder);
+        $uploadedFile = $this->uploadedFile(additionPath: $folder);
 
         $this->assertTrue(Storage::directoryExists($folder));
-        $this->assertTrue(Storage::exists($uploadedFile));
-        $this->assertEquals('public', Storage::getVisibility($uploadedFile));
+        $this->assertTrue(Storage::has($uploadedFile));
+        $this->assertEquals(Storage::getVisibility($uploadedFile), 'public');
     }
 
     public function test_remove_file()
     {
-        $uploadedFile = $this->uploadTestFile();
+        $uploadedFile = $this->uploadedFile();
 
-        $this->assertTrue(Storage::exists($uploadedFile));
+        $this->assertTrue(Storage::has($uploadedFile));
 
         $this->service->remove($uploadedFile);
 
-        $this->assertFalse(Storage::exists($uploadedFile));
+        $this->assertFalse(Storage::has($uploadedFile));
     }
 
-    protected function uploadTestFile(string $fileName = null, string $additionalPath = ''): string
+    protected function uploadedFile(string $fileName = null, string $additionPath = ''): string
     {
         $file = UploadedFile::fake()->image($fileName ?? self::FILE_NAME);
-        return $this->service->upload($file, $additionalPath);
+        return $this->service->upload($file, $additionPath);
     }
 }
