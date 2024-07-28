@@ -21,7 +21,7 @@ class ProductsControllerTest extends TestCase
             ['thumbnail' => $file]
         );
         $slug = $data['slug'];
-        $imagePath = "$slug/uploaded_image.png";
+        $imagePath = "products/$slug/uploaded_image.png";
 
         $this->mock(
             FileServiceContract::class,
@@ -34,7 +34,7 @@ class ProductsControllerTest extends TestCase
         $this->actingAs($this->user())
             ->post(route('admin.products.store'), $data);
 
-        $this->assertDatabaseHas(Product::class, [
+        $this->assertDatabaseHas('products', [
             'slug' => $slug,
             'thumbnail' => $imagePath
         ]);
