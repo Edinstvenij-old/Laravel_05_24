@@ -64,18 +64,13 @@ class ProductsController extends Controller
      */
     public function update(EditRequest $request, Product $product, ProductsRepositoryContract $repository)
     {
-        $success = $repository->update($product, $request);
-
-        if ($success) {
-            $product->refresh();
-            notify()->success("Product '{$product->title}' was updated!");
-            return redirect()->route('admin.products.index');
+        if ($repository->update($product, $request)) {
+            notify()->success("Product '$product->title' was updated!");
+            return redirect()->route('admin.products.edit', $product);
         }
-
-        notify()->error("Oops, something went wrong");
+        notify()->error("Oops, smth went wrong");
         return redirect()->back()->withInput();
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -88,7 +83,7 @@ class ProductsController extends Controller
         $product->images()->delete();
         $product->deleteOrFail();
 
-        notify()->success("Product '$product->title' was removed!");
+        notify()->sucess("Product '$product->title' was removed!");
 
         return redirect()->route('admin.products.index');
     }
