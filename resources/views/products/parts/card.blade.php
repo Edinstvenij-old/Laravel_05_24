@@ -9,7 +9,10 @@
             </div>
         </div>
         <div class="card-footer">
-            <a href="#" class="btn btn-outline-success my-2">Buy</a>
+            <form method="POST" action="{{ route('cart.add', $product) }}">
+                @csrf
+                <button type="submit" class="btn btn-outline-success my-2">Buy</button>
+            </form>
             <a href="{{ route('products.show', $product) }}" class="btn btn-outline-info my-2">Show</a>
         </div>
     </div>
