@@ -36,9 +36,10 @@
     32 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     33 => 'Termwind\\Laravel\\TermwindServiceProvider',
     34 => 'Spatie\\Permission\\PermissionServiceProvider',
-    35 => 'App\\Providers\\AppServiceProvider',
-    36 => 'App\\Providers\\TelescopeServiceProvider',
-    37 => 'Spatie\\Permission\\PermissionServiceProvider',
+    35 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
+    36 => 'App\\Providers\\AppServiceProvider',
+    37 => 'App\\Providers\\TelescopeServiceProvider',
+    38 => 'Spatie\\Permission\\PermissionServiceProvider',
   ),
   'eager' => 
   array (
@@ -62,9 +63,10 @@
     17 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     18 => 'Termwind\\Laravel\\TermwindServiceProvider',
     19 => 'Spatie\\Permission\\PermissionServiceProvider',
-    20 => 'App\\Providers\\AppServiceProvider',
-    21 => 'App\\Providers\\TelescopeServiceProvider',
-    22 => 'Spatie\\Permission\\PermissionServiceProvider',
+    20 => 'Srmklive\\PayPal\\Providers\\PayPalServiceProvider',
+    21 => 'App\\Providers\\AppServiceProvider',
+    22 => 'App\\Providers\\TelescopeServiceProvider',
+    23 => 'Spatie\\Permission\\PermissionServiceProvider',
   ),
   'deferred' => 
   array (

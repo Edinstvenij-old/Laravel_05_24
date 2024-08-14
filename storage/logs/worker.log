@@ -103,3 +103,5 @@
   29  artisan:13
       Illuminate\Foundation\Application::handleCommand()
 
+  2024-08-14 08:27:38 App\Jobs\WishList\PriceUpdatedJob .............. RUNNING
+  2024-08-14 08:27:38 App\Jobs\WishList\PriceUpdatedJob ......... 35.20ms DONE
