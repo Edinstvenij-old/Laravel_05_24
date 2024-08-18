@@ -17,6 +17,18 @@
       0 => 'LaraIzitoast\\LaraIzitoastServiceProvider',
     ),
   ),
+  'barryvdh/laravel-dompdf' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Barryvdh\\DomPDF\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Pdf' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+      'PDF' => 'Barryvdh\\DomPDF\\Facade\\Pdf',
+    ),
+  ),
   'barryvdh/laravel-ide-helper' => 
   array (
     'providers' => 
@@ -64,6 +76,17 @@
     'providers' => 
     array (
       0 => 'Laravel\\Ui\\UiServiceProvider',
+    ),
+  ),
+  'laraveldaily/laravel-invoices' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaravelDaily\\Invoices\\InvoiceServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Invoice' => 'LaravelDaily\\Invoices\\Facades\\Invoice',
     ),
   ),
   'nesbot/carbon' => 
