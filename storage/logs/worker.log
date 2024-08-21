@@ -105,3 +105,209 @@
 
   2024-08-14 08:27:38 App\Jobs\WishList\PriceUpdatedJob .............. RUNNING
   2024-08-14 08:27:38 App\Jobs\WishList\PriceUpdatedJob ......... 35.20ms DONE
+  2024-08-21 05:29:02 App\Jobs\WishList\PriceUpdatedJob .............. RUNNING
+  2024-08-21 05:29:03 App\Jobs\WishList\PriceUpdatedJob ......... 60.72ms DONE
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+
+   UnexpectedValueException 
+
+  Invalid route action: [App\Http\Controllers\Callbacks\JoinTelegramController].
+
+  at vendor/laravel/framework/src/Illuminate/Routing/RouteAction.php:92
+     88▕      */
+     89▕     protected static function makeInvokable($action)
+     90▕     {
+     91▕         if (! method_exists($action, '__invoke')) {
+  ➜  92▕             throw new UnexpectedValueException("Invalid route action: [{$action}].");
+     93▕         }
+     94▕ 
+     95▕         return $action.'@__invoke';
+     96▕     }
+
+      [2m+8 vendor frames [22m
+
+  9   routes/web.php:60
+      Illuminate\Support\Facades\Facade::__callStatic()
+      [2m+3 vendor frames [22m
+
+  13  routes/web.php:59
+      Illuminate\Routing\RouteRegistrar::group()
+
+  2024-08-21 10:08:00 App\Listeners\Orders\CreatedListener ........... RUNNING
+  2024-08-21 10:08:00 App\Listeners\Orders\CreatedListener ...... 54.68ms DONE
+  2024-08-21 10:08:00 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-21 10:08:00 App\Notifications\Admins\OrderCreatedNotification  154.84ms DONE

@@ -17,6 +17,13 @@
       0 => 'LaraIzitoast\\LaraIzitoastServiceProvider',
     ),
   ),
+  'azate/laravel-telegram-login-auth' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Azate\\LaravelTelegramLoginAuth\\Providers\\LaravelServiceProvider',
+    ),
+  ),
   'barryvdh/laravel-dompdf' => 
   array (
     'providers' => 
@@ -50,11 +57,25 @@
       0 => 'LaraDumps\\LaraDumps\\LaraDumpsServiceProvider',
     ),
   ),
+  'laravel-notification-channels/telegram' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'NotificationChannels\\Telegram\\TelegramServiceProvider',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 
     array (
       0 => 'Laravel\\Sail\\SailServiceProvider',
+    ),
+  ),
+  'laravel/sanctum' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Laravel\\Sanctum\\SanctumServiceProvider',
     ),
   ),
   'laravel/telescope' => 
