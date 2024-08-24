@@ -311,3 +311,9 @@
   2024-08-21 10:08:00 App\Listeners\Orders\CreatedListener ...... 54.68ms DONE
   2024-08-21 10:08:00 App\Notifications\Admins\OrderCreatedNotification  RUNNING
   2024-08-21 10:08:00 App\Notifications\Admins\OrderCreatedNotification  154.84ms DONE
+  2024-08-24 07:57:40 App\Listeners\Orders\CreatedListener ........... RUNNING
+  2024-08-24 07:57:40 App\Listeners\Orders\CreatedListener ...... 38.92ms DONE
+  2024-08-24 07:57:40 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-24 07:57:41 App\Notifications\Admins\OrderCreatedNotification  105.22ms DONE
+  2024-08-24 07:57:41 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-24 07:57:44 App\Notifications\Admins\OrderCreatedNotification  3s DONE

@@ -95,9 +95,10 @@ class User extends Authenticatable
 
     public function isWishedProduct(Product $product, string $type = 'price'): bool
     {
-        return $this->wishes()
+
+        return !!$this->wishes()
             ->where('product_id', $product->id)
             ->wherePivot($type, true)
-            ->exists();
+            ->count();
     }
 }
