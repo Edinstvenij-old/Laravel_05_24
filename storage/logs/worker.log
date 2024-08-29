@@ -331,3 +331,189 @@
   2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated ...... 1.19ms FAIL
   2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated .......... RUNNING
   2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated ..... 18.23ms FAIL
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+29 vendor frames [22m
+
+  30  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+
+   RedisException 
+
+  php_network_getaddresses: getaddrinfo for redis failed: Temporary failure in name resolution
+
+  at vendor/laravel/framework/src/Illuminate/Redis/Connectors/PhpRedisConnector.php:159
+    155▕         if (version_compare(phpversion('redis'), '5.3.0', '>=') && ! is_null($context = Arr::get($config, 'context'))) {
+    156▕             $parameters[] = $context;
+    157▕         }
+    158▕ 
+  ➜ 159▕         $client->{$persistent ? 'pconnect' : 'connect'}(...$parameters);
+    160▕     }
+    161▕ 
+    162▕     /**
+    163▕      * Create a new redis cluster instance.
+
+      [2m+28 vendor frames [22m
+
+  29  artisan:13
+      Illuminate\Foundation\Application::handleCommand()
+
+  2024-08-29 13:23:38 App\Listeners\Orders\CreatedListener ........... RUNNING
+  2024-08-29 13:23:38 App\Listeners\Orders\CreatedListener ...... 86.43ms DONE
+  2024-08-29 13:23:38 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 13:23:38 App\Notifications\Admins\OrderCreatedNotification  157.58ms DONE
+  2024-08-29 13:23:38 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 13:23:38 App\Notifications\Admins\OrderCreatedNotification  415.28ms DONE
+  2024-08-29 13:25:02 App\Listeners\Orders\CreatedListener ........... RUNNING
+  2024-08-29 13:25:02 App\Listeners\Orders\CreatedListener ...... 37.51ms DONE
+  2024-08-29 13:25:02 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 13:25:03 App\Notifications\Admins\OrderCreatedNotification  94.51ms DONE
+  2024-08-29 13:25:03 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 13:25:03 App\Notifications\Admins\OrderCreatedNotification  287.02ms DONE
+  2024-08-29 13:27:06 App\Listeners\Orders\CreatedListener ........... RUNNING
+  2024-08-29 13:27:06 App\Listeners\Orders\CreatedListener ...... 42.92ms DONE
+  2024-08-29 13:27:06 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 13:27:06 App\Notifications\Admins\OrderCreatedNotification  96.42ms DONE
+  2024-08-29 13:27:06 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 13:27:07 App\Notifications\Admins\OrderCreatedNotification  395.67ms DONE

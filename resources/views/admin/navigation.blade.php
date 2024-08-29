@@ -5,7 +5,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a id="productsDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+    <a id="productsDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Products
     </a>
 
@@ -20,7 +20,7 @@
 </li>
 
 <li class="nav-item dropdown">
-    <a id="categoriesDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+    <a id="categoriesDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Categories
     </a>
 

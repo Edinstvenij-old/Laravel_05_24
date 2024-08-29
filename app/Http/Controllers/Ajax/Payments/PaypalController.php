@@ -11,8 +11,8 @@ use App\Repositories\Contract\OrderRepositoryContract;
 use App\Services\Contracts\PaypalServiceContract;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class PaypalController extends Controller
 {
@@ -28,13 +28,13 @@ class PaypalController extends Controller
             $paypalOrderId = $this->paymentService->create(Cart::instance('cart'));
 
             if (!$paypalOrderId) {
-                return response()->json(['error' => "Payment was not completed"], 422);
+                return response()->json(['error' => 'Payment was not completed'], 422);
             }
 
-            $data = [
-                ...$request->validated(),
-                'vendor_order_id' => $paypalOrderId
-            ];
+            $data = array_merge(
+                $request->validated(),
+                ['vendor_order_id' => $paypalOrderId]
+            );
 
             $order = $orderRepository->create($data);
 
@@ -43,7 +43,7 @@ class PaypalController extends Controller
             return response()->json($order);
         } catch (\Exception $exception) {
             DB::rollBack();
-            logs()->error($exception);
+            Log::error($exception->getMessage(), ['exception' => $exception]);
 
             return response()->json(['error' => $exception->getMessage()], 422);
         }
@@ -72,7 +72,7 @@ class PaypalController extends Controller
             return response()->json($order);
         } catch (\Exception $exception) {
             DB::rollBack();
-            logs()->error($exception);
+            Log::error($exception->getMessage(), ['exception' => $exception]);
 
             return response()->json(['error' => $exception->getMessage()], 422);
         }
