@@ -66,8 +66,8 @@ class PaypalController extends Controller
 
             DB::commit();
 
-            OrderCreatedEvent::dispatchIf($order, $order);
-            OrderCreated::dispatch($order->total);
+//            OrderCreatedEvent::dispatchIf($order, $order);
+//            OrderCreated::dispatch($order->total);
 
             return response()->json($order);
         } catch (\Exception $exception) {
