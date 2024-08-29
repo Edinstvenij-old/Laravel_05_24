@@ -1,14 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\OrdersController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\Pages\ThankYouController;
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
 Route::get('test', function() {
-    $order = Order::take(1)->first();
-    \App\Events\OrderCreatedEvent::dispatchIf($order, $order);
+    \App\Events\Sockets\Admin\OrderCreated::dispatch(253.50, url(route('admin.orders.index')));
 });
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -31,10 +33,10 @@ Route::middleware(['auth'])->group(function() {
 });
 
 Route::name('cart.')->prefix('cart')->group(function() {
-    Route::get('/', [\App\Http\Controllers\CartController::class, 'index'])->name('index');
-    Route::post('{product}', [\App\Http\Controllers\CartController::class, 'add'])->name('add');
-    Route::delete('/', [\App\Http\Controllers\CartController::class, 'remove'])->name('remove');
-    Route::put('{product}/count', [\App\Http\Controllers\CartController::class, 'count'])->name('count');
+    Route::get('/', [CartController::class, 'index'])->name('index');
+    Route::post('{product}', [CartController::class, 'add'])->name('add');
+    Route::delete('/', [CartController::class, 'remove'])->name('remove');
+    Route::put('{product}/count', [CartController::class, 'count'])->name('count');
 });
 
 // site.com/admin
@@ -42,6 +44,7 @@ Route::name('admin.')->prefix('admin')->middleware('role:admin|moderator')->grou
     Route::get('/', \App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
     Route::resource('products', \App\Http\Controllers\Admin\ProductsController::class)->except(['show']);
     Route::resource('categories', \App\Http\Controllers\Admin\CategoriesController::class)->except(['show']);
+    Route::resource('orders', OrdersController::class)->only(['index', 'show']);
 });
 
 Route::name('ajax.')->prefix('ajax')->group(function() {

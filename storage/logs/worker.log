@@ -317,3 +317,17 @@
   2024-08-24 07:57:41 App\Notifications\Admins\OrderCreatedNotification  105.22ms DONE
   2024-08-24 07:57:41 App\Notifications\Admins\OrderCreatedNotification  RUNNING
   2024-08-24 07:57:44 App\Notifications\Admins\OrderCreatedNotification  3s DONE
+  2024-08-29 10:33:22 App\Listeners\Orders\CreatedListener ........... RUNNING
+  2024-08-29 10:33:22 App\Listeners\Orders\CreatedListener ...... 37.44ms DONE
+  2024-08-29 10:33:22 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 10:33:22 App\Notifications\Admins\OrderCreatedNotification  75.04ms DONE
+  2024-08-29 10:33:22 App\Notifications\Admins\OrderCreatedNotification  RUNNING
+  2024-08-29 10:33:23 App\Notifications\Admins\OrderCreatedNotification  983.95ms DONE
+  2024-08-29 11:32:28 App\Jobs\WishList\PriceUpdatedJob .............. RUNNING
+  2024-08-29 11:32:28 App\Jobs\WishList\PriceUpdatedJob ......... 30.00ms DONE
+  2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated .......... RUNNING
+  2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated ..... 12.65ms FAIL
+  2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated .......... RUNNING
+  2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated ...... 1.19ms FAIL
+  2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated .......... RUNNING
+  2024-08-29 11:48:29 App\Events\Sockets\Admin\OrderCreated ..... 18.23ms FAIL
