@@ -80,7 +80,7 @@ class AuthTest extends TestCase
             'password' => 'test1234'
         ]);
 
-        $response->assertRedirect(route('admin.dashboard'));
+        $response->assertRedirect('/account');
         $this->assertAuthenticatedAs($user);
     }
 

@@ -5,8 +5,10 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -14,7 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use HasFactory, Notifiable, HasRoles, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +30,7 @@ class User extends Authenticatable
         'birthdate',
         'email',
         'password',
+        'telegram_id',
         'created_at',
         'updated_at'
     ];
@@ -65,6 +68,11 @@ class User extends Authenticatable
         )->withPivot(['price', 'exist']);
     }
 
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function addToWish(Product $product, string $type = 'price'): void
     {
         $wished = $this->wishes()->find($product); // row from wish_list
@@ -87,9 +95,10 @@ class User extends Authenticatable
 
     public function isWishedProduct(Product $product, string $type = 'price'): bool
     {
-        return $this->wishes()
+
+        return !!$this->wishes()
             ->where('product_id', $product->id)
             ->wherePivot($type, true)
-            ->exists();
+            ->count();
     }
 }

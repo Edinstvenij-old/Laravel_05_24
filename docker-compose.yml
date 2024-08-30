@@ -11,9 +11,10 @@ services:
         ports:
             - '${APP_PORT:-80}:80'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+            - '${REVERB_PORT:-8081}:8080'
         environment:
             WWWUSER: '${WWWUSER}'
-            LARAVEL_SAIL: 1
+            LARAVEL_SAIL: '1'
             XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
             XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
@@ -25,12 +26,18 @@ services:
             - pgsql
             - redis
             - mailpit
+        healthcheck:
+            test: ["CMD-SHELL", "curl --silent --fail http://localhost || exit 1"]
+            interval: 30s
+            retries: 3
+            start_period: 10s
+            timeout: 10s
+
     pgsql:
         image: 'postgres:15'
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
         environment:
-            PGPASSWORD: '${DB_PASSWORD:-secret}'
             POSTGRES_DB: '${DB_DATABASE}'
             POSTGRES_USER: '${DB_USERNAME}'
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
@@ -40,16 +47,12 @@ services:
         networks:
             - sail
         healthcheck:
-            test:
-                - CMD
-                - pg_isready
-                - '-q'
-                - '-d'
-                - '${DB_DATABASE}'
-                - '-U'
-                - '${DB_USERNAME}'
+            test: ["CMD-SHELL", "pg_isready -q -d ${DB_DATABASE} -U ${DB_USERNAME} || exit 1"]
+            interval: 30s
             retries: 3
-            timeout: 5s
+            start_period: 10s
+            timeout: 10s
+
     redis:
         image: 'redis:alpine'
         ports:
@@ -59,12 +62,12 @@ services:
         networks:
             - sail
         healthcheck:
-            test:
-                - CMD
-                - redis-cli
-                - ping
+            test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+            interval: 30s
             retries: 3
-            timeout: 5s
+            start_period: 10s
+            timeout: 10s
+
     mailpit:
         image: 'axllent/mailpit:latest'
         ports:
@@ -72,9 +75,11 @@ services:
             - '${FORWARD_MAILPIT_DASHBOARD_PORT:-8025}:8025'
         networks:
             - sail
+
 networks:
     sail:
         driver: bridge
+
 volumes:
     sail-pgsql:
         driver: local
